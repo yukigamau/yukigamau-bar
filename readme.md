@@ -1,4 +1,6 @@
 # 项目说明 Program description
+名字：扬雪状态栏  
+name:yukigamau bar  
 本项目主要用于修改MC的状态显示栏。  
 This program is used to change MC's HUD.  
 目前已经修改了血量。  
