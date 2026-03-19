@@ -45,6 +45,7 @@ public class HealthHudRenderer
 
 			float health = player.getHealth();
 			float max = player.getMaxHealth();
+			float absort=player.getAbsorptionAmount();
 
 			// 颜色选择
 			int color;
@@ -67,10 +68,20 @@ public class HealthHudRenderer
 			}
 
 			// 绘制血量方块
-			gui.fill(x, y, x + BOX_WIDTH, y + BOX_HEIGHT, color);
+			if(absort > 0)
+			{
+				int addColor=0x88FFD700;
+				gui.fillGradient(x, y, x + BOX_WIDTH, y + BOX_HEIGHT, color, addColor);
+			}
+			else
+				gui.fill(x, y, x + BOX_WIDTH, y + BOX_HEIGHT, color);
 
 			// 绘制血量文字 cur/max
-			String text = ((int) Math.ceil(health)) + "/" + ((int) Math.ceil(max));
+			String text;
+			if(absort > 0)
+				text=((int)Math.ceil(health))+"/"+((int)Math.ceil(max))+"+"+((int)Math.ceil(absort));
+			else
+				text = ((int) Math.ceil(health)) + "/" + ((int) Math.ceil(max));
 			int textX = x + BOX_WIDTH / 2 - font.width(text) / 2;
 			int textY = y + 1;
 
