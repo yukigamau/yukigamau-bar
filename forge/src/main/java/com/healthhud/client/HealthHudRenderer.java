@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class HealthHudRenderer
 {
-	private static final int BOX_WIDTH = 91; // 为了显示 cur/max，框宽调大，这个是原版的长度
+	private static final int BOX_WIDTH = 80; // 为了显示 cur/max，框宽调大，这个是原版的长度
 	private static final int BOX_HEIGHT = 9;
 	private static int flashCounter = 0;
 	private static boolean isColorRed = false;
@@ -21,7 +21,6 @@ public class HealthHudRenderer
 	@SubscribeEvent
 	public static void renderHealth(RenderGuiOverlayEvent.Pre event)
 	{
-		// 拦截原版血条
 		if (event.getOverlay().id().equals(VanillaGuiOverlay.PLAYER_HEALTH.id()))
 		{
 			event.setCanceled(true);

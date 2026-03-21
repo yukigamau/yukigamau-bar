@@ -1,0 +1,13 @@
+{
+  "itemGroup.yukigamaubar": "Example Mod Tab",
+  "block.yukigamaubar.example_block": "Example Block",
+  "item.yukigamaubar.example_item": "Example Item",
+
+  "yukigamaubar.configuration.title": "Yukigamau Bar Configs",
+  "yukigamaubar.configuration.section.yukigamaubar.common.toml": "Yukigamau Bar Configs",
+  "yukigamaubar.configuration.section.yukigamaubar.common.toml.title": "Yukigamau Bar Configs",
+  "yukigamaubar.configuration.items": "Item List",
+  "yukigamaubar.configuration.logDirtBlock": "Log Dirt Block",
+  "yukigamaubar.configuration.magicNumberIntroduction": "Magic Number Text",
+  "yukigamaubar.configuration.magicNumber": "Magic Number"
+}
