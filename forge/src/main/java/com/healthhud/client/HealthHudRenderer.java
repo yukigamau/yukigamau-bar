@@ -15,8 +15,8 @@ public class HealthHudRenderer
 {
 	private static final int BOX_WIDTH = 80; // 为了显示 cur/max，框宽调大，这个是原版的长度
 	private static final int BOX_HEIGHT = 9;
-	private static int flashCounter = 0;
 	private static boolean isColorRed = false;
+	private static long lastTick = -1;
 
 	@SubscribeEvent
 	public static void renderHealth(RenderGuiOverlayEvent.Pre event)
@@ -56,9 +56,14 @@ public class HealthHudRenderer
 				color = 0xFF440125; // 低血古铜紫
 			else                    // 低血闪烁
 			{
-				++flashCounter;
-				if (flashCounter % 32 == 0)
-					isColorRed = !isColorRed;
+				// 用tick代替之前的counter，来让显示效果差不多
+				long tick = mc.level.getGameTime();
+				if(tick != lastTick)
+				{
+					lastTick = tick;
+					if(lastTick % 10 == 0)
+						isColorRed = !isColorRed;
+				}
 
 				if (isColorRed)
 					color = 0xFFFF0000; // 闪烁红
